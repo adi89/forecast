@@ -23,6 +23,8 @@ To see this in action you must:
     - Why?
       - Because OpenWeather doesn't accept addresses in a friendly format to their API. Geokit lets us have expanded infor and keeps things consistent.
 
+- The main players are [`WeatherForecast`](https://github.com/adi89/forecast/blob/main/app/models/weather_forecast.rb) and [`Address`]https://github.com/adi89/forecast/blob/main/app/models/address.rb). The conventional route is inputting an address, hitting submit, and that taking you to [`post#weather_forecasts`](https://github.com/adi89/forecast/blob/main/app/controllers/weather_forecasts_controller.rb). From there, we fetch weather data via OpenWeather API (supplemental address data via GeoKit), format it, and display it on a container on the index. Pretty straightforward.
+
 __To DO__(at some point):
 - move `OpenWeather::Client` (untether) to a singleton
 - Refine errors to provide greater specificity and find all possible error states
