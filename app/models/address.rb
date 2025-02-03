@@ -16,7 +16,6 @@ class Address
     raise AddressInvalidError.new unless address.success
     address
   end
-
 end
 
 class AddressInvalidError < StandardError; end

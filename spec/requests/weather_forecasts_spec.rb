@@ -10,7 +10,6 @@ RSpec.describe "Weather Forecasts", type: :request do
   end
 
   describe "POST /weather_forecasts" do
-
     context "given an unsuccessful request" do
       context "given an invalid address" do
         before do
@@ -25,7 +24,7 @@ RSpec.describe "Weather Forecasts", type: :request do
       end
 
       context "given an error in the forecast api" do
-        let(:mock_address){ OpenStruct.new(zip: '90210') }
+        let(:mock_address) { OpenStruct.new(zip: '90210') }
 
         before do
           allow(Address).to receive(:new).and_return(mock_address)
@@ -40,9 +39,9 @@ RSpec.describe "Weather Forecasts", type: :request do
         end
       end
     end
-    
+
     context "given a successful request" do
-      let(:mock_address){ OpenStruct.new(zip: '90210') }
+      let(:mock_address) { OpenStruct.new(zip: '90210') }
 
       before do
         allow(Address).to receive(:new).and_return(mock_address)
@@ -50,7 +49,7 @@ RSpec.describe "Weather Forecasts", type: :request do
       end
 
       context "when cache has not been hit" do
-        let(:cached){ nil }
+        let(:cached) { nil }
         before do
           allow(Rails.cache).to receive(:fetch).and_return({})
         end
@@ -64,14 +63,14 @@ RSpec.describe "Weather Forecasts", type: :request do
 
 
       context "when cache has been hit" do
-        let(:cached){{
+        let(:cached) { {
           name: "foo",
           temperature: 59,
           feels_like: 50,
           min: 23,
-          max: 60 
+          max: 60
         }}
-  
+
         before { post "/weather_forecasts", params: { address: "123 york street" }, as: :turbo_stream }
 
         it 'returns a 201' do

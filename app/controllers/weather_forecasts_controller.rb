@@ -1,7 +1,7 @@
 class WeatherForecastsController < ApplicationController
   rescue_from ::AddressInvalidError, with: :bad_request
   rescue_from ::WeatherClientApiError, with: :api_client_error
-  
+
   def index
   end
 
@@ -17,13 +17,12 @@ class WeatherForecastsController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.update(
-          "weatherContainer", #container in index.html.erb
+          "weatherContainer", # container in index.html.erb
           partial: "forecast",
           locals: @weather_forecast
         )
       end
     end
-  
   end
 
   private
@@ -37,5 +36,4 @@ class WeatherForecastsController < ApplicationController
       WeatherForecast.new(zip: zip).to_h
     }
   end
-
 end

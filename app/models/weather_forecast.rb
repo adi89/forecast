@@ -26,9 +26,8 @@ class WeatherForecast
   end
 
   def weather_client
-    OpenWeather::Client.new(api_key: ENV['WEATHER_API_KEY'])
+    OpenWeather::Client.new(api_key: ENV["WEATHER_API_KEY"])
   end
-
 end
 
 class ClientApiError < StandardError; end
