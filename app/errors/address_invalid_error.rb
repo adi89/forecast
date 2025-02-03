@@ -1,0 +1,2 @@
+
+class AddressInvalidError < StandardError; end

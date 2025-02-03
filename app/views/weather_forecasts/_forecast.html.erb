@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <% @weather_forecast[:data].each_key do |key| %>
+     <td><%= key %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <% @weather_forecast[:data].each_value do |value| %>
+      <td> <%= value %> </td>
+    <% end %>
+  </tr>
+</table>
+
+<h4> Cached: <%= @weather_forecast[:cached] %></h4>

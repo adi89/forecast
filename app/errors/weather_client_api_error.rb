@@ -1,0 +1,1 @@
+class WeatherClientApiError < StandardError; end

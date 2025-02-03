@@ -1,0 +1,8 @@
+<%= form_with url: "/weather_forecasts", method: :post, remote: true do |form| %>
+  <%= form.label :query, "Address:" %>
+  <%= form.search_field :address %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<div id="weatherContainer">
+</div>
