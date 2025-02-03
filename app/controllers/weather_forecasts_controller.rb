@@ -11,7 +11,7 @@ class WeatherForecastsController < ApplicationController
 
     @weather_forecast = {
       data: cached || cache_forecast(zip),
-      cached: cached.present?
+      cached: cached
     }
 
     respond_to do |format|
