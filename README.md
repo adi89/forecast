@@ -29,3 +29,4 @@ __To DO__(at some point):
 - Metric friendly weather for folks outside of the USA
 - `Redis` for storing cached data (so separate connections can access the same address data saving on the API calls.. to an extent)
 - Update the UI from the 1995 aesthetic
+- Potentially have a separate class for formatting the Forecast from fetching the data
